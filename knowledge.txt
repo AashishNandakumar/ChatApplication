@@ -1,0 +1,21 @@
+1. When building real-time applications that require the connection to remain open for a two-way connection, such as conferencing or chatting applications, we use websockets.
+
+2. It is a stateful protocol, which means connection authentication is required once, the client credential is stored and there is no need for further authentication until the connection is lost.
+
+3. WebSockets is a bi-directional protocol. Therefore the client and the server can exchange data simultaneously without delays or interventions, hence it is considered a full-duplex communication.
+
+4. For using WebSockets in Django we need to utilize Asynchronous Python(async request processing) and Django Channels(to create an ASGI server, used in - websockets, aysnc programming, and Non-HTTP protocol support).
+* ASGI - Is a calling convention for web servers for forwarding requests to asynchronous-capable Python frameworks, and applications.
+
+5. We then create 'groups' where users can send text messages to all other users in the same group
+
+6. 'Channel Layers' act as the bridge(queue) that allow different websocket connections to send messages back and forth simultaneusly, i.e to estblish the persistent connections.
+* Channel Layers - is considered as the middleman between different WebSocket connections.
+* A Channel is an Abstraction for a WebSocket connection, and every WebSocket connection has a unique 'channel_name' that identifies it.
+
+7. 'Consumers' in channels help structure your code as a series of functions to be called whenever an event happens. They are usually written in Asynchronous Python.
+The events that are handled are:
+    a. Connections
+    b. Disconnections
+    c. Receiving request
+    d. Sending texts ...
